@@ -11,20 +11,32 @@ const createTask = (title, description, dueDate, priority) => {
 let tasks = []; 
 const btn = document.querySelector('button');
 btn.addEventListener('click', () => {
+    let title;
+    let description;
+    let dueDate;
+    let priority;
     const formInputs = document.querySelectorAll('.input');
-    formInputs.forEach( input => {
-        if (input.value !== '') {
-            let title = document.getElementById('title').value;
-            let description = document.getElementById('description').value;
-            let dueDate = document.getElementById('dueDate').value;
-            let priority = document.getElementById('priority').value;
-            tasks.push(createTask(title, description, dueDate, priority));
-            taskContainer.replaceChildren();
-            document.getElementById("fillTask").reset();
-            displayTasks();
-            completeTask();
-        };
-    });
+    if (Array.from(formInputs).every(input => input.value !== '') === true){
+        for (let i = 0; i < formInputs.length; i++) {
+            if (formInputs[i].id === 'title'){
+                title = document.getElementById('title').value;
+            }
+            if (formInputs[i].id === 'description'){
+                description = document.getElementById('description').value;
+            }
+            if (formInputs[i].id === 'description'){
+                dueDate = document.getElementById('dueDate').value;
+            }
+            if (formInputs[i].id === 'description'){
+                priority = document.getElementById('priority').value;
+            }
+        }
+        tasks.push(createTask(title, description, dueDate, priority));
+        taskContainer.replaceChildren();
+        document.getElementById("fillTask").reset();
+        displayTasks();
+        completeTask();
+    }
 })
 
 
@@ -67,7 +79,7 @@ const addProject = (name) => {
     return {name}
 }
 
-// Btn for adding project 
+// Collapsing sidebar 
 let coll = document.getElementsByClassName('collapsible');
 
 for (let i = 0; i < coll.length; i++) {
