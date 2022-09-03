@@ -1,6 +1,5 @@
 // Create todo factory function
 const createTask = (title, description, dueDate, priority) => {
-    const printIt = () => console.log(`Title: ${title} \nDescription: ${description} \nDue: ${dueDate} \nPriority: ${priority}`)
     return {title, description, dueDate, priority}
 }
 
@@ -60,3 +59,25 @@ const completeTask = () => {
         });
     })
 };
+
+
+// Add new project 
+let projects = [];
+const addProject = (name) => {
+    return {name}
+}
+
+// Btn for adding project 
+let coll = document.getElementsByClassName('collapsible');
+
+for (let i = 0; i < coll.length; i++) {
+    coll[i].addEventListener('click', function() {
+        this.classList.toggle('active');
+        let content = this.nextElementSibling;
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+        } else {
+            content.style.display = 'block';
+        }
+    })
+}
