@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <script src="main.js" defer></script>
     <title>Todo List</title>
 </head>
@@ -11,21 +12,21 @@
     <form id="fillTask">
         <div>
             <label for="title">Title</label>
-            <input id="title">
+            <input id="title" c;ass='input' required/>
         </div>
         <div>
             <label for="description">Description</label>
-            <input id="description">
+            <input id="description" class="input" required/>
         </div>
         <div>
             <label for="dueDate">Due:</label>
-            <input id="dueDate">
+            <input id="dueDate" class="input" required/>
         </div>
         <div>
             <label for="priority ">Priority</label>
-            <input id="priority">
+            <input id="priority" class="input" required/>
         </div>
-        <button type="button">Add Task</button>
+        <button type="submit">Add Task</button>
     </form>
     
     <div class="taskContainer"></div>

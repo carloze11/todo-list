@@ -4,22 +4,28 @@ const createTask = (title, description, dueDate, priority) => {
     return {title, description, dueDate, priority}
 }
 
-let title = document.getElementById('title');
-let description = document.getElementById('description');
-let dueDate = document.getElementById('dueDate');
-let priority = document.getElementById('priority');
+
 
 // Add tasks to list 
+// Going to have to add an iteration to this to make it work better
+// As of now, every input is taking in all values
 let tasks = []; 
 const btn = document.querySelector('button');
 btn.addEventListener('click', () => {
-    let taskTitle = title.value || '';
-    let taskDescription = description.value || '';
-    let taskDueDate = dueDate.value || '';
-    let taskPriority = priority.value || '';
-    tasks.push(createTask(taskTitle, taskDescription, taskDueDate, taskPriority));
-    displayTasks();
-    document.getElementById("fillTask").reset();
+    const formInputs = document.querySelectorAll('.input');
+    formInputs.forEach( input => {
+        if (input.value !== '') {
+            let title = document.getElementById('title').value;
+            let description = document.getElementById('description').value;
+            let dueDate = document.getElementById('dueDate').value;
+            let priority = document.getElementById('priority').value;
+            tasks.push(createTask(title, description, dueDate, priority));
+            taskContainer.replaceChildren();
+            document.getElementById("fillTask").reset();
+            displayTasks();
+            completeTask();
+        };
+    });
 })
 
 
@@ -30,7 +36,10 @@ let div = document.createElement('div');
 const displayTasks = () => {
     tasks.forEach( task => {
     const taskCard = div.cloneNode();
-    const taskCompleteBtn = document.createElement('button');
+    const taskCompleteBtn = document.createElement('input');
+    taskCompleteBtn.classList.add('task-btn')
+    taskCompleteBtn.setAttribute('type', 'checkbox');
+    taskCompleteBtn.setAttribute('id', 'checkbox');
     taskCard.appendChild(taskCompleteBtn)
     taskContainer.appendChild(taskCard);
     for (const prop in task){
@@ -42,4 +51,12 @@ const displayTasks = () => {
 }
 
 // Mark tasks as completed
-
+const completeTask = () => {
+    let checkbox = document.querySelectorAll('#checkbox');
+    checkbox.forEach( box => {
+        box.addEventListener('click', () => {
+            box.parentNode.style.color = 'lightgray';
+            box.parentNode.style.textDecoration = 'line-through';
+        });
+    })
+};
