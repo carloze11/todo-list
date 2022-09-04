@@ -53,9 +53,15 @@
     content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
 
-.task-btn {
+/* .task-btn {
     border-radius: 50%;
     background-color: white;
     width: 20px;
     height: 20px;
-}
+} */
+
+/* .delete-btn {
+    background-color: white;
+    width: 20px;
+    height: 20px;
+} */
