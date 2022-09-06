@@ -7,7 +7,9 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-          title: 'Output Management',
+          title: 'Todo',
+          filename: 'index.html',
+          template: 'src/template.html',
         }),
       ],
   output: {
