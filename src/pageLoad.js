@@ -46,9 +46,22 @@ const createDom = (() => {
         projectsBar.appendChild(addProject)
       })();
 
-      return addProjectBtn;
+      ///////////////////////////////////////////////////
+      //////////CREATING DEFAULT ADDTASK CARD////////////
+      ///////////////////////////////////////////////////
+const tasksContainer = div.cloneNode();
+tasksContainer.classList.add('tasksContainer');
+container.appendChild(tasksContainer);
+
+
+const createBtn = (() => {
+  const taskBtn = div.cloneNode();
+  taskBtn.classList.add('taskBtn');
+  taskBtn.textContent = '+ Add Task';
+  tasksContainer.appendChild(taskBtn);
 })();
 
 
 
-addProjectBtn();
+
+})();
