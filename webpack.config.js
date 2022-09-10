@@ -4,12 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: {
         index: './src/index.js',
+        pageLoad: './src/pageLoad.js',
     },
     plugins: [
         new HtmlWebpackPlugin({
           title: 'Todo',
           filename: 'index.html',
-          template: 'src/template.html',
         }),
       ],
   output: {
